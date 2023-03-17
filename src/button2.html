@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>javascript-state-machine</title>
+    <style>
+      .on {
+        background-color: #1e80ff;
+        color: #fff;
+      }
+
+      .ul-popover {
+        visibility: hidden;
+        border: 1px dashed blueviolet;
+      }
+      .ul-visible {
+        visibility: visible;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" id="btn-switch">Switch With FSM</button>
+    <ul class="ul-popover">
+      <li>Milk</li>
+      <li>
+        Cheese
+        <ul>
+          <li>Blue cheese</li>
+          <li>Feta</li>
+        </ul>
+      </li>
+    </ul>
+
+    <script src="https://unpkg.com/javascript-state-machine@3.1.0/lib/state-machine.js"></script>
+    <script src="js/button2.js"></script>
+    <script>
+      let machine = new ButtonMachine(
+        document.querySelector('#btn-switch'),
+        document.querySelector('.ul-popover')
+      );
+    </script>
+  </body>
+</html>
