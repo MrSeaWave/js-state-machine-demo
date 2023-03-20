@@ -6,15 +6,17 @@ let ButtonMachine = function (btnEle, ulEle) {
       { name: 'turnOff', from: 'on', to: 'off' },
     ],
     methods: {
-      onTurnOn: function (event, from, to) {
+      onTurnOn: function (lifecycle) {
+        const { transition, from, to } = lifecycle;
         btnEle.classList.add('on');
         ulEle.classList.add('ul-visible');
         log(to, from);
       },
-      onTurnOff: function (event, from, to) {
+      onTurnOff: function (lifecycle) {
+        const { transition, from, to } = lifecycle;
         btnEle.classList.remove('on');
         ulEle.classList.remove('ul-visible');
-        log(from, to);
+        log(to, from);
       },
     },
   });
